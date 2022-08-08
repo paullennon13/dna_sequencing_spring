@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Top Matches</title>
 </head>
 <body>
+
+<h1 style="text-align: center"> Top Matches:</h1>
+<h2 style="text-align: center" th:text="'DNA sequence input: ' + ${DNASequence}"></h2>
+<h2 style="text-align: center" th:text="'Smaller DNA sequence input: ' + ${DNAToMatch}"></h2>
+<h3 style="text-align: center" th:each="match: ${topMatches}" th:text="${match}"></h3>
+<div style="text-align: center">
+    <a href="http://localhost:8080/">
+        <button>Home</button>
+    </a>
+</div>
+
 
 </body>
 </html>

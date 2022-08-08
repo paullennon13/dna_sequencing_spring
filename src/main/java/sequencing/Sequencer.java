@@ -1,5 +1,8 @@
 package sequencing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sequencer {
     private final String dnaSequence;
     private final String dnaToMatch;
@@ -78,6 +81,41 @@ public class Sequencer {
             return count;
         }
         return count;
+    }
+
+    public List<String> toList(){
+        List<String> list = new java.util.LinkedList<>();
+        int j = 2;
+        int k = 1;
+        if (matches.isEmpty()) {
+            return list;
+        }
+        // for loop to get top ten matches
+        for(int i = 1; i <= 10; i++) {
+            StringBuilder string = new StringBuilder();
+            string.append("Match number ")
+                    .append(i)
+                    .append(": ");
+            if (j > matches.get(k).getSize()) {
+                k++;
+                j = 2;
+            }
+            int length = matches.get(k).get(0);
+            int startIndex = matches.get(k).get(j);
+            // if length of match equals one just adds char at start index
+            if(length == 1){
+                string.append(dnaSequence.charAt(startIndex));
+            }
+            // if length greater than 1 take substring of dnaSequence starting at start index and ending at
+            // start index + length, NOTE: lowest possible value is 1, 0 length matches not added to list
+            else {
+                string.append(dnaSequence, startIndex, startIndex + length);
+            }
+            j++;
+            // adds new line to list
+            list.add(string.toString());
+        }
+        return list;
     }
 
     // Outputs the top 10 matches of the two provided DNA samples
