@@ -21,7 +21,7 @@ public class IndexController {
     }
 
     @PostMapping
-    public String postIndex(Model model, @RequestParam(name = "DNASequence") String DNASequence, @RequestParam(name = "DNAToMatch") String DNAToMatch){
+    public String postIndex(Model model,  String DNASequence, String DNAToMatch){
 
         Sequencer s = new Sequencer(DNASequence, DNAToMatch);
         String topMatches = s.toString();

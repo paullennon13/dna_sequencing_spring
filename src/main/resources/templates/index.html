@@ -6,16 +6,15 @@
 </head>
 <body>
 
-<form th:action="@{/}" th:object="${model}">
-    <input name="DNASequence" type="text" th:value="*{DNASequence}">
-    <input name="DNAToMatch" type="text" th:value="*{DNAToMatch}">
+<h1 style="text-align: center">DNA Sequencer</h1>
+
+<form style="text-align: center" action="/matches" method="post">
+    <label for="DNASequence">Enter DNA Sequence:</label><br>
+    <input id="DNASequence" name="DNASequence" type="text"><br><br>
+    <label for="DNAToMatch">Enter smaller DNA Sequence:</label><br>
+    <input id="DNAToMatch" name="DNAToMatch" type="text"><br><br>
+    <input type="submit">
 </form>
-
-<div th:if="${topMatches != null}" th:text="${topMatches}">
-
-</div>
-
-
 
 </body>
 </html>

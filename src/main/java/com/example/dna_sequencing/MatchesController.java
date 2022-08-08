@@ -12,7 +12,7 @@ import sequencing.Sequencer;
 public class MatchesController {
 
     @PostMapping
-    public String matches(Model model, @RequestParam(name = "DNASequence") String DNASequence, @RequestParam(name = "DNAToMatch") String DNAToMatch){
+    public String matches(Model model, String DNASequence, String DNAToMatch){
 
         Sequencer s = new Sequencer(DNASequence, DNAToMatch);
         String topMatches = s.toString();
